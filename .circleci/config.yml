@@ -8,13 +8,16 @@ workflows:
     jobs:
       - moul/golang-build:
           gopkg: moul.io/httpcache-filters
+          no-install: true
       - moul/golang-build:
           gopkg: moul.io/httpcache-filters
           tag: '1.13'
+          no-install: true
       - moul/golang-build:
           gopkg: moul.io/httpcache-filters
           tag: '1.12'
+          no-install: true
       - moul/golang-build:
           gopkg: moul.io/httpcache-filters
           tag: '1.11'
-      - moul/docker-build
+          no-install: true
