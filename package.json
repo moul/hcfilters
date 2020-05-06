@@ -1,6 +1,6 @@
 {
     "_comment": "this project is not a node.js one, package.json is just used to define some metadata",
-    "name": "@moul.io/httpcache-filters",
+    "name": "@moul.io/hcfilters",
     "version": "0.0.1",
     "author": "Manfred Touron <oss@moul.io> (https://manfred.life)",
     "contributors": [
@@ -8,14 +8,14 @@
     ],
     "license": "(Apache-2.0 OR MIT)",
     "scripts": {
-        "start": "httpcache-filters",
+        "start": "hcfilters",
         "install": "make install",
         "test": "make test"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/moul/httpcache-filters.git"
+        "url": "https://github.com/moul/hcfilters.git"
     },
-    "bugs": "https://github.com/moul/httpcache-filters/issues",
-    "homepage": "https://moul.io/httpcache-filters"
+    "bugs": "https://github.com/moul/hcfilters/issues",
+    "homepage": "https://moul.io/hcfilters"
 }

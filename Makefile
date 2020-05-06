@@ -1,3 +1,3 @@
-GOPKG ?=	moul.io/httpcache-filters
+GOPKG ?=	moul.io/hcfilters
 
 include rules.mk

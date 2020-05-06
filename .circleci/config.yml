@@ -7,17 +7,17 @@ workflows:
   main:
     jobs:
       - moul/golang-build:
-          gopkg: moul.io/httpcache-filters
+          gopkg: moul.io/hcfilters
           no-install: true
       - moul/golang-build:
-          gopkg: moul.io/httpcache-filters
+          gopkg: moul.io/hcfilters
           tag: '1.13'
           no-install: true
       - moul/golang-build:
-          gopkg: moul.io/httpcache-filters
+          gopkg: moul.io/hcfilters
           tag: '1.12'
           no-install: true
       - moul/golang-build:
-          gopkg: moul.io/httpcache-filters
+          gopkg: moul.io/hcfilters
           tag: '1.11'
           no-install: true

@@ -1,3 +1,3 @@
-module moul.io/httpcache-filters
+module moul.io/hcfilters
 
 go 1.13
