@@ -14,12 +14,29 @@
 [![Made by Manfred Touron](https://img.shields.io/badge/made%20by-Manfred%20Touron-blue.svg?style=flat)](https://manfred.life/)
 
 
-## Install
-
-### Using go
+## Usage
 
 ```console
 $ go get -u moul.io/hcfilters
+```
+
+```golang
+// before
+client := &http.Client{
+	Transport: httpcache.NewTransport(
+		diskcache.New(diskcachePath),
+	),
+}
+
+// after
+client := &http.Client{
+	Transport: httpcache.NewTransport(
+		hcfilters.MaxSize( // skip caching results > 2Mb
+			diskcache.New(diskcachePath),
+			2*1024*1024,
+		),
+	),
+}
 ```
 
 ## License
