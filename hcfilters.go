@@ -1,5 +1,6 @@
 package hcfilters
 
+// MaxSize filters file that are too big to be cached
 func MaxSize(next Cache, limit int) Cache {
 	return maxSizeFilter{
 		next:  next,
@@ -15,13 +16,36 @@ type maxSizeFilter struct {
 func (f maxSizeFilter) Get(key string) (responseBytes []byte, ok bool) {
 	return f.next.Get(key)
 }
-
 func (f maxSizeFilter) Delete(key string) {
 	f.next.Delete(key)
 }
-
 func (f maxSizeFilter) Set(key string, responseBytes []byte) {
 	if len(responseBytes) < f.limit {
+		f.next.Set(key, responseBytes)
+	}
+}
+
+// MinSize filters file that are too small to be cached
+func MinSize(next Cache, limit int) Cache {
+	return minSizeFilter{
+		next:  next,
+		limit: limit,
+	}
+}
+
+type minSizeFilter struct {
+	next  Cache
+	limit int
+}
+
+func (f minSizeFilter) Get(key string) (responseBytes []byte, ok bool) {
+	return f.next.Get(key)
+}
+func (f minSizeFilter) Delete(key string) {
+	f.next.Delete(key)
+}
+func (f minSizeFilter) Set(key string, responseBytes []byte) {
+	if len(responseBytes) > f.limit {
 		f.next.Set(key, responseBytes)
 	}
 }
